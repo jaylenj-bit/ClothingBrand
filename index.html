@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gothic Y2K Clothing Marketplace</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid #ff007f;
+    }
+    header h1 {
+      color: #ff007f;
+      font-size: 2.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2b2b2b;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #ff4d4d;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .item-card {
+      background-color: #1a1a1a;
+      border: 2px solid #ff007f;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .item-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .item-card h2 {
+      color: #ff4d4d;
+      margin: 1rem 0 0.5rem;
+    }
+    .item-card p {
+      font-size: 0.9rem;
+      color: #cccccc;
+    }
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #ff007f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .order-btn:hover {
+      background-color: #e60073;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dark Dollz Marketplace</h1>
+  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">New Arrivals</a>
+    <a href="#">Collections</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="container">
+    <!-- Example Item Card -->
+    <div class="item-card">
+      <img src="https://via.placeholder.com/250x300/000000/ff007f?text=Y2K+Top" alt="Y2K Top">
+      <h2>Y2K Mesh Top</h2>
+      <p>Sheer black mesh top with pink thread detail. Limited edition.</p>
+      <form action="mailto:orders@yourbrandemail.com" method="post" enctype="text/plain">
+        <input type="hidden" name="Item" value="Y2K Mesh Top">
+        <input type="submit" value="Order" class="order-btn">
+      </form>
+    </div>
+
+    <!-- Repeat for more items -->
+  </div>
+</body>
+</html>
