@@ -5,12 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gothic Y2K Clothing Marketplace</title>
   <style>
+    @keyframes glitch {
+      0% { clip: rect(20px, 9999px, 80px, 0); }
+      20% { clip: rect(10px, 9999px, 90px, 0); }
+      40% { clip: rect(30px, 9999px, 60px, 0); }
+      60% { clip: rect(25px, 9999px, 75px, 0); }
+      80% { clip: rect(5px, 9999px, 85px, 0); }
+      100% { clip: rect(0px, 9999px, 100px, 0); }
+    }
+
     body {
       margin: 0;
       font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0a0a0a;
       color: #ffffff;
       background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/3o7TKtyCqgZCM1Gy3O/giphy.gif') repeat;
+      mix-blend-mode: screen;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 1;
     }
     header {
       background: linear-gradient(135deg, #ff007f, #ff4d4d);
@@ -18,11 +42,14 @@
       text-align: center;
       border-bottom: 3px dashed #c10052;
       box-shadow: 0 0 15px red;
+      position: relative;
+      z-index: 2;
     }
     header h1 {
       color: #000000;
       font-size: 3rem;
       text-shadow: 2px 2px #ff007f;
+      animation: glitch 1s infinite;
     }
     nav {
       display: flex;
@@ -30,6 +57,8 @@
       background-color: #1f1f1f;
       padding: 0.75rem;
       box-shadow: inset 0 -1px 0 #ff007f;
+      position: relative;
+      z-index: 2;
     }
     nav a {
       color: #ff4d4d;
@@ -47,6 +76,8 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
       padding: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .item-card {
       background-color: #1a1a1a;
@@ -90,6 +121,8 @@
       border-radius: 12px;
       border: 2px dashed #c10052;
       box-shadow: 0 0 25px rgba(255, 0, 79, 0.6);
+      position: relative;
+      z-index: 2;
     }
     .about h2 {
       color: #ff4d4d;
@@ -103,6 +136,17 @@
       text-align: center;
       line-height: 1.7;
       color: #f0f0f0;
+    }
+    .anime-art {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 0;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .anime-art img {
+      max-height: 300px;
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
@@ -138,5 +182,10 @@
     </div>
     <!-- Repeat for more items -->
   </div>
+
+  <div class="anime-art">
+    <img src="https://i.ibb.co/sv0HK7R/ghost-anime.png" alt="anime ghost girl">
+  </div>
 </body>
 </html>
+
