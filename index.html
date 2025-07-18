@@ -14,11 +14,6 @@
       100% { clip: rect(0px, 9999px, 100px, 0); }
     }
 
-    @keyframes blood-drip-bottom {
-      0% { height: 0; opacity: 1; }
-      100% { height: 20px; opacity: 0; }
-    }
-
     body {
       margin: 0;
       font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,6 +35,21 @@
       opacity: 0.1;
       pointer-events: none;
       z-index: 1;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      background-image: url('https://i.ibb.co/VYmT2Rs/blood-corner.png'), url('https://i.ibb.co/VYmT2Rs/blood-corner.png');
+      background-repeat: no-repeat;
+      background-position: top left, top right;
+      background-size: 150px;
+      opacity: 0.7;
     }
     header {
       background: linear-gradient(135deg, #ff007f, #ff4d4d);
@@ -94,19 +104,6 @@
       position: relative;
       overflow: hidden;
     }
-    .item-card::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 6px;
-      height: 0;
-      background: linear-gradient(to bottom, #8b0000, #ff0000);
-      animation: blood-drip-bottom 1.6s infinite;
-      transform: translateX(-50%);
-      z-index: 3;
-      border-radius: 3px;
-    }
     .item-card img {
       width: 100%;
       border-radius: 8px;
@@ -120,6 +117,19 @@
     .item-card p {
       font-size: 0.9rem;
       color: #dddddd;
+    }
+    .item-card::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 40px;
+      background: url('https://i.ibb.co/N1n9syK/blood-drip-bottom.png') no-repeat center bottom;
+      background-size: contain;
+      z-index: 3;
+      pointer-events: none;
     }
     .order-btn {
       margin-top: 1rem;
@@ -190,7 +200,6 @@
   </div>
 
   <div class="container">
-    <!-- Example Item Card -->
     <div class="item-card">
       <img src="https://via.placeholder.com/250x300/000000/ff007f?text=Y2K+Top" alt="Y2K Top">
       <h2>Y2K Mesh Top</h2>
@@ -200,7 +209,6 @@
         <input type="submit" value="Order" class="order-btn">
       </form>
     </div>
-    <!-- Repeat for more items -->
   </div>
 
   <div class="anime-art">
@@ -208,3 +216,4 @@
   </div>
 </body>
 </html>
+
