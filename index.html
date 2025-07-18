@@ -42,18 +42,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 150px;
       pointer-events: none;
       z-index: 5;
-      background-image:
-        url('https://img.freepik.com/premium-psd/realistic-blood-splatter-effect-transparent-background_474756-3490.jpg'),
-        url('https://i.ibb.co/G57JgLh/blood-top-right.png'),
-        url('https://i.ibb.co/mz1zM5c/blood-bottom-left.png'),
-        url('https://i.ibb.co/xDLrnbn/blood-bottom-right.png');
-      background-repeat: no-repeat;
-      background-position: top left, top right, bottom left, bottom right;
-      background-size: 150px;
-      opacity: 0.75;
+      background: url('https://i.ibb.co/kB7zm7d/blood-across-top.png') repeat-x top center;
+      background-size: contain;
+      opacity: 0.8;
     }
     header {
       background: linear-gradient(135deg, #ff007f, #ff4d4d);
@@ -121,19 +115,6 @@
     .item-card p {
       font-size: 0.9rem;
       color: #dddddd;
-    }
-    .item-card::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 40px;
-      background: url('https://i.ibb.co/N1n9syK/blood-drip-bottom.png') no-repeat center bottom;
-      background-size: contain;
-      z-index: 3;
-      pointer-events: none;
     }
     .order-btn {
       margin-top: 1rem;
