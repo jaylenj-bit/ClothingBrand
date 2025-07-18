@@ -14,9 +14,9 @@
       100% { clip: rect(0px, 9999px, 100px, 0); }
     }
 
-    @keyframes blood-drip {
-      0% { transform: translateY(-100%); opacity: 1; }
-      100% { transform: translateY(100%); opacity: 0; }
+    @keyframes blood-drip-bottom {
+      0% { height: 0; opacity: 1; }
+      100% { height: 20px; opacity: 0; }
     }
 
     body {
@@ -94,19 +94,18 @@
       position: relative;
       overflow: hidden;
     }
-    .item-card::after {
+    .item-card::before {
       content: "";
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 50%;
-      width: 4px;
-      height: 80px;
-      background: linear-gradient(to bottom, #ff0000, #8b0000);
-      animation: blood-drip 1.5s infinite;
+      width: 6px;
+      height: 0;
+      background: linear-gradient(to bottom, #8b0000, #ff0000);
+      animation: blood-drip-bottom 1.6s infinite;
       transform: translateX(-50%);
       z-index: 3;
-      border-radius: 2px;
-      opacity: 0.8;
+      border-radius: 3px;
     }
     .item-card img {
       width: 100%;
@@ -209,4 +208,3 @@
   </div>
 </body>
 </html>
-
