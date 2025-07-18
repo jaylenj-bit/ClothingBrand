@@ -163,6 +163,20 @@
     .anime-art img {
       max-height: 300px;
     }
+    .across-img {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      pointer-events: none;
+      z-index: 5;
+      background: url('blooddude.png') repeat-x top center;
+      background-size: contain;
+      opacity: 0.8;
+    }
+    
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -194,6 +208,9 @@
         <input type="submit" value="Order" class="order-btn">
       </form>
     </div>
+  </div>
+  <div class="across-img">
+    <img src="blooddude.png" alt="blood">
   </div>
 
   <div class="anime-art">
