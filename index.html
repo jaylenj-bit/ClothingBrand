@@ -14,6 +14,14 @@
       100% { clip: rect(0px, 9999px, 100px, 0); }
     }
 
+    @keyframes border-glitch {
+      0% { box-shadow: 0 0 8px #ff007f, 0 0 16px #ff007f; }
+      25% { box-shadow: 0 0 6px #ff4d4d, 0 0 12px #ff4d4d; }
+      50% { box-shadow: 0 0 10px #ff007f, 0 0 20px #c10052; }
+      75% { box-shadow: 0 0 12px #c10052, 0 0 24px #ff4d4d; }
+      100% { box-shadow: 0 0 8px #ff007f, 0 0 16px #ff007f; }
+    }
+
     body {
       margin: 0;
       font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,11 +50,14 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 150px;
+      height: 100%;
       pointer-events: none;
       z-index: 5;
-      background-size: contain;
-      opacity: 0.8;
+      background-image: url('https://i.ibb.co/svmV9y4/blood-top-banner.png');
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      opacity: 0.75;
     }
     header {
       background: linear-gradient(135deg, #ff007f, #ff4d4d);
@@ -100,6 +111,7 @@
       box-shadow: 0 0 10px #ff4d4d;
       position: relative;
       overflow: hidden;
+      animation: border-glitch 1.5s infinite;
     }
     .item-card img {
       width: 100%;
@@ -114,6 +126,19 @@
     .item-card p {
       font-size: 0.9rem;
       color: #dddddd;
+    }
+    .item-card::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 40px;
+      background: url('https://i.ibb.co/N1n9syK/blood-drip-bottom.png') no-repeat center bottom;
+      background-size: contain;
+      z-index: 3;
+      pointer-events: none;
     }
     .order-btn {
       margin-top: 1rem;
@@ -162,20 +187,6 @@
     .anime-art img {
       max-height: 300px;
     }
-    .across-img {
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
-      width: 3000px;
-      max-height: 150px;
-      pointer-events: none;
-      background: url('https://image.freepik.com/free-vector/flowing-red-blood-transparent-background_126980-215.jpg') no-repeat top center;
-      background-size: contain;
-      opacity: 0.8;
-    }
-    
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -207,9 +218,6 @@
         <input type="submit" value="Order" class="order-btn">
       </form>
     </div>
-  </div>
-  <div class="across-img">
-    <img src="https://image.freepik.com/free-vector/flowing-red-blood-transparent-background_126980-215.jpg" alt="blood">
   </div>
 
   <div class="anime-art">
