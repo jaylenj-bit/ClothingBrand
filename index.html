@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gothic Y2K Clothing Marketplace</title>
   <style>
+
+        @keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+@keyframes rgb-glitch {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(1px, 1px);
+  }
+}
+
+@keyframes text-glitch {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  25% {
+    clip-path: inset(10% 0 30% 0);
+    transform: translate(-1px, -1px);
+  }
+  50% {
+    clip-path: inset(20% 0 40% 0);
+    transform: translate(1px, 1px);
+  }
+  75% {
+    clip-path: inset(5% 0 25% 0);
+    transform: translate(-2px, 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+}
+    
     @keyframes glitch {
       0% { clip: rect(20px, 9999px, 80px, 0); }
       20% { clip: rect(10px, 9999px, 90px, 0); }
@@ -103,31 +149,67 @@
       z-index: 2;
     }
     .item-card {
-      background-color: #1a1a1a;
-      border: 2px solid #ff007f;
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 0 10px #ff4d4d;
-      position: relative;
-      overflow: hidden;
-      animation: border-glitch 1.5s infinite;
+  background-color: #1a1a1a;
+  border: 2px solid #ff007f;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #ff4d4d;
+  position: relative;
+  overflow: hidden;
+  animation: border-glitch 1.5s infinite;
+  transition: transform 0.2s ease-in-out;
     }
     .item-card img {
       width: 100%;
       border-radius: 8px;
       filter: contrast(1.1) saturate(1.2);
     }
+
+    .item-card:hover {
+  transform: scale(1.03) translateX(-1px);
+}
     .item-card h2 {
       color: #ff4d4d;
       margin: 1rem 0 0.5rem;
       font-family: 'Orbitron', sans-serif;
     }
+
+    .item-card h2, .item-card p {
+  position: relative;
+  z-index: 3;
+}
     .item-card p {
       font-size: 0.9rem;
       color: #dddddd;
     }
-    .item-card::after {
+
+    .item-card h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #00fff2;
+  z-index: -1;
+  transform: translate(2px, -2px);
+  opacity: 0.7;
+  animation: text-glitch 2s infinite ease-in-out alternate;
+}
+
+    .item-card h2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff00c8;
+  z-index: -1;
+  transform: translate(-2px, 2px);
+  opacity: 0.7;
+  animation: text-glitch 1.5s infinite ease-in-out alternate;
+}
+
+    
+    .item-card::before, .item-card::after {
       content: "";
       position: absolute;
       bottom: -10px;
@@ -137,9 +219,27 @@
       height: 40px;
       background: url('https://i.ibb.co/N1n9syK/blood-drip-bottom.png') no-repeat center bottom;
       background-size: contain;
-      z-index: 3;
-      pointer-events: none;
-    }
+      mix-blend-mode: screen;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 0, 127, 0.1),
+    rgba(255, 0, 127, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: scan 3s infinite linear alternate;
+}
+
+    .item-card::after {
+  background: none;
+  box-shadow:
+    2px 0 #ff00c8,
+    -2px 0 #00fff2;
+  opacity: 0.4;
+  animation: rgb-glitch 1s infinite;
+}
     .order-btn {
       margin-top: 1rem;
       padding: 0.6rem 1.2rem;
@@ -187,6 +287,8 @@
     .anime-art img {
       max-height: 300px;
     }
+
+
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
