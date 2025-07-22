@@ -5,8 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gothic Y2K Clothing Marketplace</title>
   <style>
+.scan-lines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.015),
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 100;
+  pointer-events: none;
+  animation: scan-flicker 0.15s infinite linear;
+}
 
-  
+@keyframes scan-flicker {
+  0%, 100% {
+    opacity: 0.02;
+  }
+  50% {
+    opacity: 0.05;
+  }
+}
+
+.flicker-text {
+  color: #00fff2;
+  text-shadow: 0 0 5px #00fff2, 0 0 10px #ff00c8, 0 0 20px #ff00c8;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.3;
+  }
+}
 
 @keyframes text-glitch {
   0% {
@@ -125,6 +165,25 @@
   animation: border-glitch 1.5s infinite;
   transition: transform 0.2s ease-in-out;
     }
+
+    body {
+  cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1142.cur'), auto;
+}
+
+    .item-card::before {
+  /* existing content ... */
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  animation: shine 2.5s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(15deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(15deg);
+  }
+}
     .item-card img {
       width: 100%;
       border-radius: 8px;
@@ -257,9 +316,9 @@
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="scan-lines">
   <header>
-    <h1>Dark Dollz Marketplace</h1>
+    <h1 class="flicker-text">Dark Dollz Marketplace</h1>
   </header>
   <nav>
     <a href="#">Home</a>
